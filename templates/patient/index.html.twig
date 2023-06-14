@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PatientController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Users/Administrator/Desktop/symfony-cli_windows_amd64/Paudiaz/src/Controller/PatientController.php'|file_link(0) }}">src/Controller/PatientController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Users/Administrator/Desktop/symfony-cli_windows_amd64/Paudiaz/templates/patient/index.html.twig'|file_link(0) }}">templates/patient/index.html.twig</a></code></li>
+    </ul>
+</div>
+{{ title|upper }}
+<p >{{ user.name }} added this comment on {{ comment.publishedAt|date }}</p>
+<p>The Google tracking code is: {{ ga_tracking }}</p>
+<p>Username: {{ app.user.username ?? 'Anonymous user' }}</p>
+{% if app.debug %}
+    <p>Request method: {{ app.request.method }}</p>
+    <p>Application Environment: {{ app.environment }}</p>
+{% endif %}
+
+{# templates/blog/index.html.twig #}
+
+{# ... #}
+<div class="user-profile">
+    <img src="{{ user.profileImageUrl }}" alt="{{ user.fullName }}"/>
+    <p>{{ user.fullName }} - {{ user.email }}</p>
+</div>
+{% dump articles %}
+{% for article in articles %}
+  <h1>Blog de PauDiaz</h1>
+  <h1>Producto = {{ product.title|raw }}</h1>
+
+    {% block page_contents %}{% endblock %}
+   <a href="/article/{{ article.slug }}">
+        {{ article.title }}
+    </a>
+    {{ dump(article) }}
+    {% block content %}
+
+<p>Hello {{ name }}</p>
+
+
+
+<link href="{{ asset('css/blog.css') }}" rel="stylesheet"/>
+
+<script src="{{ asset('bundles/acme/js/loader.js') }}"></script>
+
+{% endblock %}
+{% endfor %}
+{% endblock %}
